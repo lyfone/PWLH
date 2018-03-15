@@ -50,6 +50,12 @@ float *get_a_b(std::vector<float> &points, double sum) {
     return result;
 }
 
+/**
+ * 计算期望
+ * @param para
+ * @param points
+ * @return
+ */
 double compute_e(float *para, std::vector<float> &points) {
     double variance = 0.0;
     int pos = 1;
@@ -91,6 +97,8 @@ std::vector<float> PWLH::get_points() {
  * @param f
  */
 void PWLH::start(float f) {
+    points.clear();
+    pwlh_data.reset();
     points.push_back(f);
     pwlh_data.counter += 1;
 }
@@ -128,7 +136,5 @@ bool PWLH::update(float f) {
     para = get_a_b(points, sum);
     pwlh_data.a = para[0];
     pwlh_data.b = para[1];
-    reset();
-    start(f);
     return false;
 }

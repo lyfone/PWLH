@@ -14,8 +14,8 @@
  */
 struct PWLH_Data{
     int counter;    //数据点数量
-    float a;    //拟合线的起点
-    float b;      //拟合线的重点
+    float a;    //拟合线的参数a
+    float b;      //拟合线的参数b
 
     PWLH_Data();
     void reset();
